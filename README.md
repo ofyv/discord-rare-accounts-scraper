@@ -51,6 +51,7 @@ npm install
   "token": "YOUR_DISCORD_TOKEN",
   "webhook_url": "YOUR_WEBHOOK_URL",
   "use_proxy": false,
+  "user_check_delay_ms": 10000,
   "proxy": {
     "protocol": "http",
     "host": "your-proxy.com",
@@ -72,6 +73,7 @@ Edit the `config.json` file with your credentials:
 - **token**: Discord authentication token (get it at: Developer Portal > Application > Bot)
 - **webhook_url**: Webhook URL where notifications will be sent
 - **use_proxy**: `true` or `false` to enable/disable proxy
+- **user_check_delay_ms**: Delay in milliseconds between each user verification (default: 10000ms / 10 seconds)
 - **proxy**: Proxy settings (optional)
 
 ### How to Get Discord Token
@@ -146,9 +148,17 @@ discord-rare-accounts-scraper/
 
 The bot implements an intelligent rate limiting system:
 
-- **Default delay**: 10 seconds between requests
-- **Special delay**: 15 seconds every 360 requests
+- **Configurable delay**: Delay between user verifications (configurable via `user_check_delay_ms` in `config.json`, default: 10000ms / 10 seconds)
+- **Special delay**: Additional 5 seconds delay every 360 requests (base delay + 5000ms)
 - **Rate limit detection**: Automatically detects rate limits and waits for the necessary time
+
+### Configuring the Delay
+
+You can adjust the delay between user verifications by modifying the `user_check_delay_ms` value in `config.json`:
+
+- **Lower values** (e.g., 5000ms): Faster processing, but higher risk of rate limits
+- **Higher values** (e.g., 15000ms): Slower processing, but safer from rate limits
+- **Recommended**: 10000ms (10 seconds) for most cases
 
 ## 🔒 Security and Privacy
 
