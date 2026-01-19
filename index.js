@@ -136,6 +136,45 @@ const scrapBadgeEmojis = {
   'premium_tenure_60_month_v2': '<:opal:1462546141731098695>',
 };
 
+// Ordem das badges para exibição
+const badgeDisplayOrder = [
+  '2c',
+  '3c',
+  'Nitro',
+  'premium_tenure_1_month_v2',
+  'premium_tenure_3_month_v2',
+  'premium_tenure_6_month_v2',
+  'premium_tenure_12_month_v2',
+  'premium_tenure_24_month_v2',
+  'premium_tenure_36_month_v2',
+  'premium_tenure_48_month_v2',
+  'premium_tenure_60_month_v2',
+  'BoostLevel1',
+  'BoostLevel2',
+  'BoostLevel3',
+  'BoostLevel4',
+  'BoostLevel5',
+  'BoostLevel6',
+  'BoostLevel7',
+  'BoostLevel8',
+  'BoostLevel9',
+  'Staff',
+  'Partner',
+  'CertifiedModerator',
+  'Hypesquad',
+  'HypeSquadOnlineHouse1',
+  'HypeSquadOnlineHouse2',
+  'HypeSquadOnlineHouse3',
+  'BugHunterLevel1',
+  'BugHunterLevel2',
+  'ActiveDeveloper',
+  'VerifiedDeveloper',
+  'PremiumEarlySupporter',
+  'Username',
+  'Quest',
+  'Orb',
+];
+
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -300,6 +339,13 @@ async function badgeScrapper(guildId) {
             allBadgesForDisplay.push(processedData.boost.level);
           }
           
+          // Reordena as badges para manter a ordem correta após adicionar Nitro e boost level
+          allBadgesForDisplay.sort((a, b) => {
+            const indexA = badgeDisplayOrder.indexOf(a);
+            const indexB = badgeDisplayOrder.indexOf(b);
+            return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+          });
+          
           const allEmojisArray = allBadgesForDisplay
             .map((badge) => {
               if (badge === 'quest_completed') {
@@ -415,10 +461,14 @@ async function badgeScrapper(guildId) {
         }
       }
 
+      // Delay configurável entre verificações de usuários
+      const checkDelay = config.user_check_delay_ms || 10000;
+      const specialDelay = checkDelay + 5000; // Delay adicional a cada 360 requisições
+      
       if ((i + 1) % 360 === 0) {
-        await delay(15000);
+        await delay(specialDelay);
       } else {
-        await delay(10000);
+        await delay(checkDelay);
       }
     }
 

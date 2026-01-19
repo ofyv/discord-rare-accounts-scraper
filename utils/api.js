@@ -321,6 +321,13 @@ export function processProfileData(profileData, userFlags = []) {
     allBadges.push(boostInfo.level);
   }
 
+  // Reordena as badges após adicionar Nitro e boost level para manter a ordem correta
+  allBadges.sort((a, b) => {
+    const indexA = badgeOrder.indexOf(a);
+    const indexB = badgeOrder.indexOf(b);
+    return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+  });
+
   const processedData = {
     userId: user.id,
     username: user.username,
