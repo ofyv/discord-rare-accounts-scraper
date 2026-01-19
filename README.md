@@ -1,1 +1,189 @@
-# discord-rare-accounts-scraper
+# Discord Rare Accounts Scraper
+
+An advanced scraper to find and monitor rare Discord accounts in specific servers. The bot automatically identifies accounts with rare characteristics such as short usernames, special badges, high boost levels, and Nitro Platinum badges or higher.
+
+## 📸 Preview
+
+![Embed Preview](https://i.imgur.com/eWDYh8V.png)
+
+## ✨ Features
+
+- **Rare Username Detection**: Identifies accounts with 2 or 3 characters
+- **Rare Badges**: Detects special badges like Staff, Partner, Certified Moderator, Hypesquad, Bug Hunter, etc.
+- **Boost Levels**: Monitors accounts with Boost Level 3 or higher
+- **Nitro Badges**: Identifies Nitro Platinum, Diamond, Emerald, Ruby, and Opal badges (only Platinum and above are considered rare)
+- **Rate Limiting System**: Implements intelligent delays to avoid rate limits
+- **Proxy Support**: Optional proxy configuration for requests
+- **Webhook Integration**: Sends automatic notifications via Discord Webhook
+- **Processed IDs Tracking**: Prevents processing the same account multiple times
+
+## 🛠️ Technologies Used
+
+- **Node.js** - JavaScript runtime
+- **discord.js-selfbot-v13** - Library for Discord interaction
+- **Axios** - HTTP client for API requests
+- **Moment.js** - Date manipulation
+- **Colors** - Terminal text formatting
+
+## 📋 Requirements
+
+- Node.js 16+ installed
+- Discord authentication token
+- Discord Webhook URL
+- (Optional) Configured proxy
+
+## 🚀 Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/ofyv/discord-rare-accounts-scraper.git
+cd discord-rare-accounts-scraper
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Configure the `config.json` file:
+```json
+{
+  "token": "YOUR_DISCORD_TOKEN",
+  "webhook_url": "YOUR_WEBHOOK_URL",
+  "use_proxy": false,
+  "proxy": {
+    "protocol": "http",
+    "host": "your-proxy.com",
+    "port": 8080,
+    "auth": {
+      "username": "username",
+      "password": "password"
+    }
+  }
+}
+```
+
+## ⚙️ Configuration
+
+### Basic Configuration
+
+Edit the `config.json` file with your credentials:
+
+- **token**: Discord authentication token (get it at: Developer Portal > Application > Bot)
+- **webhook_url**: Webhook URL where notifications will be sent
+- **use_proxy**: `true` or `false` to enable/disable proxy
+- **proxy**: Proxy settings (optional)
+
+### How to Get Discord Token
+
+1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
+2. Create a new application or select an existing one
+3. Go to "Bot" and copy the token
+
+### How to Create a Webhook
+
+1. In the Discord server, go to Channel Settings > Integrations > Webhooks
+2. Click "Create Webhook"
+3. Copy the webhook URL
+
+## 📖 How to Use
+
+1. Start the bot:
+```bash
+npm start
+```
+
+2. When prompted, enter the server ID you want to scan
+
+3. The bot will:
+   - Fetch all server members
+   - Process each account checking rarity criteria
+   - Send webhook notifications for rare accounts found
+   - Save processed IDs to avoid duplicates
+
+## 🏗️ Project Structure
+
+```
+discord-rare-accounts-scraper/
+├── index.js              # Main scraper file
+├── config.json           # Configuration file
+├── package.json          # Project dependencies
+├── utils/
+│   ├── api.js           # Discord API functions
+│   ├── rarity.js        # Rarity verification logic
+│   └── webhook.js        # Webhook functions
+└── files/                # Generated files (processed IDs)
+    └── processed_ids.txt
+```
+
+## 🎯 Rarity Criteria
+
+### Rare Usernames
+- Accounts with **2 characters** in username
+- Accounts with **3 characters** in username
+
+### Rare Badges
+- Staff
+- Partner
+- Certified Moderator
+- Hypesquad
+- Bug Hunter Level 1/2
+- Premium Early Supporter
+- Verified Developer
+
+### Boost Levels
+- Boost Level 3 or higher (BoostLevel3 to BoostLevel9)
+
+### Nitro Badges (Premium Tenure)
+- **Platinum** (12 months) - `premium_tenure_12_month_v2`
+- **Diamond** (24 months) - `premium_tenure_24_month_v2`
+- **Emerald** (36 months) - `premium_tenure_36_month_v2`
+- **Ruby** (48 months) - `premium_tenure_48_month_v2`
+- **Opal** (60 months) - `premium_tenure_60_month_v2`
+
+> **Note**: Only Nitro Platinum badges and above are considered rare. Bronze, Silver, and Gold are not considered rare.
+
+## 📊 Rate Limiting
+
+The bot implements an intelligent rate limiting system:
+
+- **Default delay**: 10 seconds between requests
+- **Special delay**: 15 seconds every 360 requests
+- **Rate limit detection**: Automatically detects rate limits and waits for the necessary time
+
+## 🔒 Security and Privacy
+
+- ⚠️ **Warning**: This project uses selfbot, which violates Discord's Terms of Service
+- ⚠️ Use at your own risk
+- ⚠️ Do not share your token with anyone
+- ⚠️ Keep the `config.json` file private and do not commit it to Git
+
+## 📝 Important Notes
+
+- The bot saves processed IDs in `files/processed_ids.txt` to avoid processing the same account multiple times
+- The bot displays a LOFY banner after collecting user IDs
+- All errors are logged to the console for debugging
+
+## 🐛 Troubleshooting
+
+### Error: "Token not configured"
+- Check if the `config.json` file exists and contains the `token` field
+
+### Error: "Rate limit reached"
+- The bot automatically detects and waits. Consider using a proxy if the problem persists
+
+### Accounts are not being found
+- Verify that the server ID is correct
+- Make sure the bot has permissions to view server members
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## ⚠️ Disclaimer
+
+This project is for educational purposes only. The use of selfbots violates Discord's Terms of Service and may result in your account being banned. Use at your own risk.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
