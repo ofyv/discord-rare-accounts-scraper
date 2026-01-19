@@ -1,0 +1,14 @@
+{
+  "token": "",
+  "webhook_url": "",
+  "use_proxy": false,
+  "proxy": {
+    "protocol": "http",
+    "host": "142.111.48.253",
+    "port": 7030,
+    "auth": {
+      "username": "coqivkjn",
+      "password": "y2bu4d5srnuq"
+    }
+  }
+}
