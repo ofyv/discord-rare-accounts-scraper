@@ -1,6 +1,7 @@
 {
   "token": "",
-  "webhook_url": "",
+  "webhook_url": "",]
+  "user_check_delay_ms": 10000,
   "use_proxy": false,
   "proxy": {
     "protocol": "http",
@@ -12,3 +13,4 @@
     }
   }
 }
+
