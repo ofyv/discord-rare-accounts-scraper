@@ -110,8 +110,7 @@ discord-rare-accounts-scraper/
 ├── package.json          # Project dependencies
 ├── utils/
 │   ├── api.js           # Discord API functions
-│   ├── rarity.js        # Rarity verification logic
-│   └── webhook.js        # Webhook functions
+│   └── rarity.js        # Rarity verification logic
 └── files/                # Generated files (processed IDs)
     └── processed_ids.txt
 ```
