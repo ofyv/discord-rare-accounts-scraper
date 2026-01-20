@@ -97,7 +97,7 @@ const emojiBadges = {
   CertifiedModerator: '<:discordmod:1462545336131129535>',
   BugHunterLevel1: '<:discordbughunter1:1462545246930866475>',
   BugHunterLevel2: '<:discordbughunter2:1462544674865807645>',
-  Partner: '<:3582blurplepartner:1447107232331468921>',
+  Partner: '<:discordpartner:1462545451403313152>',
   'Username': '<:username:1462545054282420378>',
   'Orb': '<:orb:1462545655934488746>',
   'Quest': '<:quest:1462545052680323144>',
@@ -126,7 +126,7 @@ const scrapBadgeEmojis = {
   BugHunterLevel2: '<:discordbughunter2:1462544674865807645>',
   Hypesquad: '<:hypesquadevents:1462545625026527355>',
   VerifiedDeveloper: '<:discordbotdev:1462545206158033027>',
-  Partner: '<:3582blurplepartner:1447107232331468921>',
+  Partner: '<:discordpartner:1462545451403313152>',
   CertifiedModerator: '<:discordmod:1462545336131129535>',
   Staff: '<:discordstaff:1462545486044074218>',
   'premium_tenure_12_month_v2': '<:platinum:1462546142972874894>',
@@ -532,3 +532,4 @@ client.login(config.token).catch((error) => {
   console.error('❌ Erro ao fazer login:', error.message);
   process.exit(1);
 });
+
