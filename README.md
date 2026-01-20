@@ -48,7 +48,7 @@ npm install
 3. Configure the `config.json` file:
 ```json
 {
-  "token": "YOUR_DISCORD_TOKEN",
+  "token": "YOUR_USER_ACCOUNT_TOKEN",
   "webhook_url": "YOUR_WEBHOOK_URL",
   "use_proxy": false,
   "user_check_delay_ms": 10000,
@@ -70,17 +70,13 @@ npm install
 
 Edit the `config.json` file with your credentials:
 
-- **token**: Discord authentication token (get it at: Developer Portal > Application > Bot)
+- **token**: Discord **user account** authentication token used by the selfbot
 - **webhook_url**: Webhook URL where notifications will be sent
 - **use_proxy**: `true` or `false` to enable/disable proxy
 - **user_check_delay_ms**: Delay in milliseconds between each user verification (default: 10000ms / 10 seconds)
 - **proxy**: Proxy settings (optional)
 
-### How to Get Discord Token
-
-1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
-2. Create a new application or select an existing one
-3. Go to "Bot" and copy the token
+> **Important**: This project was designed to run with a user token (selfbot). Do **not** use a bot application token here, as it will not work as intended.
 
 ### How to Create a Webhook
 
