@@ -290,6 +290,8 @@ export function processProfileData(profileData, userFlags = []) {
     'ActiveDeveloper',
     'VerifiedDeveloper',
     'PremiumEarlySupporter',
+    'EarlySupporter',
+    'early_supporter',
     'Username',
     'Quest',
     'Orb',

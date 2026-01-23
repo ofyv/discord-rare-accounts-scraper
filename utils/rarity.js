@@ -41,6 +41,8 @@ const RARE_BADGES = [
   'Hypesquad',
   'Developer',
   'PremiumEarlySupporter',
+  'EarlySupporter',
+  'early_supporter',
   'BugHunterLevel1',
   'BugHunterLevel2',
 ];
