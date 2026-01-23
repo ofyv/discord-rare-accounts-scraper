@@ -75,16 +75,20 @@ const emojiBadges = {
   'premium_tenure_12_month_v2': '<:platinum:1462546142972874894>',
   'premium_tenure_24_month_v2': '<:diamond:1462546150354845851>',
   'premium_tenure_36_month_v2': '<:emerald:1462546138631639112>',
-  'premium_tenure_48_month_v2': '<:ruby:1462546145220755690>',
-  'premium_tenure_60_month_v2': '<:opal:1462546141731098695>',
+  'premium_tenure_60_month_v2': '<:ruby:1462546145220755690>',
+  'premium_tenure_72_month_v2': '<:opal:1462546141731098695>',
   'NitroBronze': '<:bronze:1462546149079519313>',
   'NitroSilver': '<:silver:1462546147401793722>',
   'NitroGold': '<:gold:1462546140321939517>',
   'NitroPlatinum': '<:platinum:1462546142972874894>',
   'NitroDiamond': '<:diamond:1462546150354845851>',
+  'NitroDiamante': '<:diamond:1462546150354845851>',
   'NitroEmerald': '<:emerald:1462546138631639112>',
+  'NitroEsmeralda': '<:emerald:1462546138631639112>',
   'NitroRuby': '<:ruby:1462546145220755690>',
   'NitroOpal': '<:opal:1462546141731098695>',
+  'NitroRubi': '<:ruby:1462546145220755690>',
+  'NitroOpala': '<:opal:1462546141731098695>',
   HypeSquadOnlineHouse1: '<:hypesquadbalance:1462545536501416040>',
   HypeSquadOnlineHouse2: '<:hypesquadbravery:1462545566935290058>',
   HypeSquadOnlineHouse3: '<:hypesquadbrilliance:1462545593791549460>',
@@ -129,11 +133,10 @@ const scrapBadgeEmojis = {
   Partner: '<:discordpartner:1462545451403313152>',
   CertifiedModerator: '<:discordmod:1462545336131129535>',
   Staff: '<:discordstaff:1462545486044074218>',
-  'premium_tenure_12_month_v2': '<:platinum:1462546142972874894>',
   'premium_tenure_24_month_v2': '<:diamond:1462546150354845851>',
   'premium_tenure_36_month_v2': '<:emerald:1462546138631639112>',
-  'premium_tenure_48_month_v2': '<:ruby:1462546145220755690>',
-  'premium_tenure_60_month_v2': '<:opal:1462546141731098695>',
+  'premium_tenure_60_month_v2': '<:ruby:1462546145220755690>',
+  'premium_tenure_72_month_v2': '<:opal:1462546141731098695>',
 };
 
 // Ordem das badges para exibição
@@ -147,8 +150,8 @@ const badgeDisplayOrder = [
   'premium_tenure_12_month_v2',
   'premium_tenure_24_month_v2',
   'premium_tenure_36_month_v2',
-  'premium_tenure_48_month_v2',
   'premium_tenure_60_month_v2',
+  'premium_tenure_72_month_v2',
   'BoostLevel1',
   'BoostLevel2',
   'BoostLevel3',
@@ -532,4 +535,3 @@ client.login(config.token).catch((error) => {
   console.error('❌ Erro ao fazer login:', error.message);
   process.exit(1);
 });
-
